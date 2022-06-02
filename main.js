@@ -85,5 +85,12 @@ async function loadWeather(url) {
     const response = await fetch(url);
     const jsondata = await response.json();
     //console.log("Jsondaten", jsondata)
+
+
+    //Makrer posititonieren    
+    marker.setLatLng([
+        jsondata.geometry.coordinates[1],
+        jsondata.geometry.coordinates[0]
+    ])
 };
 loadWeather("https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=47.267222&lon=11.392778");
